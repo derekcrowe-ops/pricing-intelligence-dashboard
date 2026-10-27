@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const d=JSON.parse(await readFile(resolve(root,'data.json'),'utf8'));
+assert.equal(d.competitors.length,5,'five competitor profiles expected');
+assert.equal(d.pricing_offers.length,6,'six offers expected');
+const cids=new Set(d.competitors.map(c=>c.competitor_id));
+assert.equal(cids.size,5,'competitor IDs must be unique');
+assert.equal(new Set(d.pricing_offers.map(o=>o.offer_id)).size,6,'offer IDs must be unique');
+for(const o of d.pricing_offers){assert(cids.has(o.competitor_id),`${o.offer_id} must point to a competitor`);assert(typeof o.price==='number');assert(/^https:\/\//.test(o.source_url));}
+const included=d.price_comparison.included_offer_ids.map(id=>d.pricing_offers.find(o=>o.offer_id===id));
+assert(included.every(o=>o&&o.currency==='USD'&&o.comparison_group),'benchmark contains only assigned USD comparable offers');
+const p=included.map(o=>o.price).sort((a,b)=>a-b);const avg=Math.round(p.reduce((x,y)=>x+y,0)/p.length*100)/100;
+assert.equal(Math.min(...p),d.price_comparison.minimum);assert.equal(Math.max(...p),d.price_comparison.maximum);assert.equal(p[1],d.price_comparison.median);assert.equal(avg,d.price_comparison.average);
+assert.equal(d.preliminary_pricing_recommendation.low,119);assert.equal(d.preliminary_pricing_recommendation.high,149);
+const app=await readFile(resolve(root,'app.js'),'utf8');
+for(const marker of ['renderCompetitors','renderOffers','renderExplorer','scenario-btn','Partially Verified','renderRepresentativeChart','renderSources']) assert(app.includes(marker),`application includes ${marker}`);
+const html=await readFile(resolve(root,'index.html'),'utf8');
+for(const asset of ['./styles.css','./app.js']) assert(html.includes(asset),`HTML references ${asset}`);
+console.log(`Validated ${d.competitors.length} competitors, ${d.pricing_offers.length} offers, and ${included.length} comparable offers.`);

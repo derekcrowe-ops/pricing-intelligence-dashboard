@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1117" />
+    <meta name="description" content="Evidence-based competitive pricing intelligence for the hockey bag with integrated stick holders venture." />
+    <title>Rinkline — Competitive Pricing Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#overview" aria-label="Rinkline dashboard home"><span class="brand-mark">R</span><span>rinkline<span class="brand-dot">.</span><small>PRICING INTELLIGENCE</small></span></a>
+        <div class="workspace-label">WORKSPACE <span class="live-dot"></span></div>
+        <nav class="main-nav" aria-label="Dashboard navigation">
+          <a class="nav-link active" href="#overview"><span class="nav-icon">◫</span>Executive overview</a>
+          <a class="nav-link" href="#landscape"><span class="nav-icon">◎</span>Competitor landscape</a>
+          <a class="nav-link" href="#pricing"><span class="nav-icon">⌁</span>Pricing analysis</a>
+          <a class="nav-link" href="#explorer"><span class="nav-icon">⌖</span>Price explorer <span class="nav-badge">TOOL</span></a>
+          <a class="nav-link" href="#opportunities"><span class="nav-icon">✳</span>Opportunities</a>
+          <a class="nav-link" href="#sources"><span class="nav-icon">≡</span>Sources & method</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="venture-chip"><span class="chip-icon">✦</span><div><strong>Hockey bag concept</strong><small>North America · Initial focus</small></div></div>
+          <div class="sidebar-foot">PHASE 1 · COMPETITIVE PRICING<br /><span>Research snapshot · Oct 27, 2026</span></div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation">☰</button>
+          <div class="breadcrumb">Research workspace <span>/</span> <strong>Pricing intelligence</strong></div>
+          <div class="topbar-right"><span class="snapshot"><i></i> DATA SNAPSHOT · OCT 27, 2026</span><button id="sourcesShortcut" class="icon-button" aria-label="Jump to research sources">↗</button></div>
+        </header>
+
+        <div class="content-wrap">
+          <section class="hero section-anchor" id="overview">
+            <div class="hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span>COMPETITIVE INTELLIGENCE <span class="eyebrow-sep">/</span> HOCKEY EQUIPMENT</div>
+              <h1>Know the market.<br /><em>Find your position.</em></h1>
+              <p>A clear view of where hockey gear bags sit today—and where a more convenient carry could fit.</p>
+              <div class="hero-tags"><span class="tag tag-cyan">North America first</span><span class="tag">One-time purchase market</span><span class="tag tag-outline">5 competitors · 6 offers</span></div>
+            </div>
+            <div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="hero-core"><span>R</span><small>PRICE<br />POSITION</small></div><div class="orbit-label label-a">CARRY</div><div class="orbit-label label-b">ORGANIZE</div><div class="orbit-label label-c">MOVE</div><div class="hero-arc"></div></div>
+          </section>
+
+          <section class="kpi-grid" id="kpis" aria-label="Research metrics"></section>
+
+          <section class="section-block" id="landscape">
+            <div class="section-head"><div><div class="eyebrow">01 <span class="eyebrow-sep">/</span> WHO'S IN THE MARKET</div><h2>Competitor landscape</h2><p class="section-sub">Five real alternatives across full gear carry, stick transport, and one adjacent sport feature analogue.</p></div><span class="section-count" id="competitorCount">05 COMPETITORS</span></div>
+            <div class="toolbar"><label class="search-box"><span>⌕</span><input id="competitorSearch" type="search" placeholder="Search brands, products, or features…" aria-label="Search competitors" /></label><div class="toolbar-controls"><select id="typeFilter" aria-label="Filter by competitor classification"><option value="all">All types</option><option value="indirect">Indirect competitors</option><option value="analogue">Feature analogue</option></select><select id="positionFilter" aria-label="Filter by positioning"><option value="all">All positioning</option><option value="budget">Budget / functional</option><option value="mid">Mainstream / mid-market</option><option value="premium">Premium</option></select><select id="sortCompetitors" aria-label="Sort competitors"><option value="name">Sort: name</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option></select></div></div>
+            <div class="compare-strip" id="compareStrip"><span><b id="selectedCount">0</b> selected for comparison</span><button id="clearSelection" class="text-button">Clear selection</button><span class="compare-hint">Select up to 3 profiles to compare</span></div>
+            <div class="competitor-grid" id="competitorGrid"></div>
+            <div class="empty-state hidden" id="competitorEmpty">No competitors match these filters. Try a different search or filter.</div>
+            <div class="selection-compare hidden" id="selectionCompare"></div>
+          </section>
+
+          <section class="section-block" id="pricing">
+            <div class="section-head"><div><div class="eyebrow">02 <span class="eyebrow-sep">/</span> PRICE LANDSCAPE</div><h2>What the market charges</h2><p class="section-sub">Complete gear bags and stick-only bags answer different needs. The benchmark below compares like-for-like gear bags only.</p></div><span class="section-count">USD · PER BAG · ONE-TIME</span></div>
+            <div class="chart-grid chart-grid-main">
+              <article class="panel chart-panel wide-panel"><div class="panel-head"><div><h3>Representative gear bag prices</h3><p>One representative complete ice-hockey bag per eligible competitor</p></div><span class="panel-action">SORT <select id="chartSort" aria-label="Sort chart bars"><option value="asc">LOW → HIGH</option><option value="desc">HIGH → LOW</option></select></span></div><div class="chart-canvas" id="representativeChart"></div><div class="chart-note"><span class="legend-swatch"></span>Full gear bag <span class="dot-separator">·</span> <span>3 offers in comparable subset</span><span class="legend-note">Range varies by bag size and features</span></div></article>
+              <article class="panel distribution-panel"><div class="panel-head"><div><h3>Observed price spread</h3><p>Comparable full gear bags · n = 3</p></div><span class="small-label">USD</span></div><div id="rangeChart" class="range-chart"></div><div class="range-summary"><div><small>LOWEST</small><strong id="rangeLow">—</strong></div><div><small>MEDIAN</small><strong id="rangeMedian">—</strong></div><div><small>HIGHEST</small><strong id="rangeHigh">—</strong></div></div></article>
+            </div>
+            <article class="panel offer-panel"><div class="panel-head offer-head"><div><h3>Every researched offer</h3><p>All six observed offers, with currency, role, and verification made explicit</p></div><div class="offer-filters"><select id="currencyFilter" aria-label="Filter offers by currency"><option value="all">All currencies</option><option value="USD">USD</option><option value="EUR">EUR</option></select><select id="verificationFilter" aria-label="Filter offers by verification"><option value="all">All verification</option><option>Verified</option><option>Partially Verified</option></select></div></div><div class="table-scroll"><table><thead><tr><th><button data-sort="competitor_name">COMPETITOR ↕</button></th><th><button data-sort="product_name">PRODUCT ↕</button></th><th><button data-sort="price">PRICE ↕</button></th><th>MODEL / UNIT</th><th>ROLE</th><th>STATUS</th><th>SOURCE</th></tr></thead><tbody id="offersTable"></tbody></table></div><div class="table-foot"><span id="offerFoot">—</span><span>Prices are historical research observations, not live feeds.</span></div></article>
+            <div class="chart-grid secondary-charts"><article class="panel ladder-panel"><div class="panel-head"><div><h3>All-offer price ladder</h3><p>USD offers only; full bags and separate stick bags labeled</p></div><span class="small-label">USD</span></div><div id="allOfferLadder"></div></article><article class="panel model-panel"><div class="panel-head"><div><h3>Pricing models observed</h3><p>Structure across researched offers</p></div><span class="small-label">OFFERS</span></div><div class="model-summary"><div class="model-ring"><strong>100<small>%</small></strong><span>one-time</span></div><div class="model-details"><div class="model-row"><span class="model-dot blue"></span><span>One-time purchase</span><b id="oneTimeCount">6</b></div><div class="model-row"><span class="model-dot gray"></span><span>Subscription / usage based</span><b>0</b></div><small>All researched listings are per-bag purchases. Currency and product type remain separate.</small></div></div></article></div>
+          </section>
+
+          <section class="section-block explorer-section" id="explorer">
+            <div class="section-head"><div><div class="eyebrow">03 <span class="eyebrow-sep">/</span> INTERACTIVE POSITIONING</div><h2>Price position explorer</h2><p class="section-sub">Explore how a tentative price compares with observed complete gear bags. This tool does not predict demand.</p></div><span class="section-count cyan-count">LIVE SCENARIO</span></div>
+            <div class="explorer-shell"><div class="explorer-left"><div class="explorer-title"><span>YOUR EXPLORATORY PRICE</span><span class="rec-flag">MISSION 1 RANGE · $119–$149</span></div><div class="price-entry"><span class="currency-prefix">$</span><input id="priceInput" type="number" min="50" max="300" step="0.01" value="129" aria-label="Enter your exploratory price in US dollars" /><span class="per-unit">USD / BAG</span></div><div class="slider-wrap"><input id="priceSlider" type="range" min="50" max="300" step="1" value="129" aria-label="Explore a proposed price from 50 to 300 dollars" /><div class="slider-labels"><span>$50</span><span class="rec-marker-label">Preliminary range $119–$149</span><span>$300</span></div></div><div class="scenario-row"><span>SCENARIO PRESETS</span><button class="scenario-btn" data-price="119"><i class="scenario-dot low"></i>Lower price <b>$119</b></button><button class="scenario-btn" data-price="195.99"><i class="scenario-dot mid"></i>Market middle <b>$195.99</b></button><button class="scenario-btn" data-price="239.99"><i class="scenario-dot high"></i>Premium <b>$239.99</b></button></div><div class="boundary-note"><span>ⓘ</span><p>Positioning uses the three observed USD complete gear bag prices. It describes relative price only; no demand, sales, or profit outcome is estimated.</p></div></div>
+              <div class="explorer-right"><div class="position-top"><div><span class="micro-label">POSITION VS. OBSERVED BENCHMARKS</span><strong id="positionLabel">—</strong><small id="positionSub">—</small></div><div class="position-vs"><small>VS. MEDIAN</small><b id="medianDelta">—</b></div></div><div class="price-ladder" id="priceLadder"></div><div class="price-breakdown" id="priceBreakdown"></div><div class="dynamic-insight" id="dynamicInsight"></div></div></div>
+          </section>
+
+          <section class="section-block" id="opportunities">
+            <div class="section-head"><div><div class="eyebrow">04 <span class="eyebrow-sep">/</span> STRATEGIC IMPLICATIONS</div><h2>Where the opportunity may be</h2><p class="section-sub">Research observations are separated from interpretations and hypotheses for the venture.</p></div><span class="section-count">INTERPRETATION · NOT VALIDATION</span></div>
+            <div class="opportunity-grid"><article class="opportunity-card feature-opportunity"><div class="opp-icon">↗</div><span class="opp-kicker">OBSERVED PRODUCT GAP</span><h3>Bring gear and sticks together</h3><p><b>Observed:</b> The sampled ice-hockey gear bags and stick bags are separate products. No comparable integrated-holder ice-hockey gear bag was verified.</p><p><b>Interpretation:</b> A combined bag could address the venture’s one-trip convenience idea. Test demand and practical trade-offs with hockey families.</p><span class="opp-index">01 / 03</span></article><article class="opportunity-card"><div class="opp-icon">◌</div><span class="opp-kicker">PRICE SPACE</span><h3>Test a modest step above basic</h3><p><b>Observed:</b> BAUER’s carry bag is $109.99; Pacific Rink’s junior bag is $195.99. The Mission 1 range of $119–$149 sits between those offers.</p><p><b>Interpretation:</b> A small convenience premium may be testable if the integrated holders are secure and do not compromise comfort.</p><span class="opp-index">02 / 03</span></article><article class="opportunity-card"><div class="opp-icon">⌂</div><span class="opp-kicker">BUYER HYPOTHESIS</span><h3>Speak to the rink-run parent</h3><p><b>Workspace insight:</b> The student’s prior review analysis identifies carrying comfort as a pain point and suggests parents often buy the bag.</p><p><b>Next question:</b> Interview parents about two-stick capacity, carrying method, durability, and acceptable price before making product claims.</p><span class="opp-index">03 / 03</span></article></div>
+            <div class="recommendation-banner"><div class="recommendation-icon">✳</div><div class="recommendation-copy"><span>MISSION 1 · PRELIMINARY RECOMMENDATION</span><h3>$119–$149 <small>USD per bag</small></h3><p>Near the mainstream full-bag reference, below the specialized junior premium bag, with a potential combined-carry differentiator.</p></div><div class="recommendation-disclaimer"><b>Preliminary — Subject to Cost and Demand Analysis</b><span>Costs, channel margins, and willingness to pay are not known.</span></div></div>
+          </section>
+
+          <section class="section-block" id="sources">
+            <div class="section-head"><div><div class="eyebrow">05 <span class="eyebrow-sep">/</span> PROVENANCE & METHOD</div><h2>Research sources & methodology</h2><p class="section-sub">Every displayed price links back to its research page. Prices are snapshots from October 27, 2026.</p></div><span class="section-count">EVIDENCE TRACE</span></div>
+            <div class="source-method-grid"><article class="panel methodology-panel"><div class="panel-head"><div><h3>How to read this dashboard</h3><p>Scope and calculation notes</p></div><span class="small-label">METHOD</span></div><div class="method-list"><div><span class="method-num">01</span><p><b>Comparable benchmark.</b> USD prices for complete ice-hockey equipment bags only: BAUER Premium Carry Bag S24 and Pacific Rink Junior and Player bags. Stick-only products and TK’s EUR field-hockey duffle are excluded.</p></div><div><span class="method-num">02</span><p><b>Representative offers.</b> One designated offer per competitor where a relevant product was researched. The CCM and Warrior representatives are separate stick bags, and TK is a different sport; neither is in the complete-bag price statistics.</p></div><div><span class="method-num">03</span><p><b>Statistics.</b> Minimum, maximum, average, and median are calculated from the three comparable complete bag prices. The offer table shows the full six-offer set, including unlike currencies and products without mixing them.</p></div><div><span class="method-num">04</span><p><b>Price-position rule.</b> The selected price is compared to the observed minimum, median, and maximum of that three-offer set. “Lower half” and “premium half” describe sides of the sample median, not consumer segments.</p></div></div><div class="limit-callout"><span>!</span><div><b>Research limits</b><p>Small selected sample; prices may have changed; availability was not consistently recorded. No directly comparable integrated-holder ice-hockey bag price was verified. No currency conversion or demand analysis is included.</p></div></div></article><article class="panel source-panel"><div class="panel-head"><div><h3>Offer source register</h3><p>Click a product to open its cited page</p></div><span class="small-label">6 SOURCES</span></div><div class="source-list" id="sourceList"></div><div class="verification-legend"><span class="status status-verified">Verified</span><span class="status status-partial">Partially verified</span><span class="status status-estimated">Estimated</span><span class="status status-unavailable">Unavailable</span></div><div class="source-footnote">Verification describes whether a price was directly confirmed on the cited page. No estimated or unavailable prices are presented as observed values.</div></article></div>
+          </section>
+
+          <footer class="footer"><div class="footer-brand"><span class="brand-mark small-mark">R</span><span>rinkline<span class="brand-dot">.</span></span></div><span>Competitive pricing research · Prepared for marketing strategy exploration</span><span>MISSION 2 <i>·</i> END OF PROJECT</span></footer>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
